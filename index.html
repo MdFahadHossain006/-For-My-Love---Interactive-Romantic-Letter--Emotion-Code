@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Love 💖</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- 1. GLOBAL SETUP --- */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fdf2f4;
+        background-image: radial-gradient(circle at center, #fff0f3 0%, #fce7eb 50%, #fbcfe8 100%);
+        font-family: "Poppins", sans-serif;
+        overflow: hidden;
+        position: relative;
+        color: #4a1525;
+      }
+
+      body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: inset 0 0 140px rgba(244, 63, 94, 0.18);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* --- 2. ENVELOPE STYLES --- */
+      .envelope-wrapper {
+        position: relative;
+        transform: scale(1);
+        transition: transform 0.6s ease, opacity 0.6s ease;
+        z-index: 2;
+      }
+
+      .envelope {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background: #e05375;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 15px 35px rgba(190, 18, 60, 0.25),
+          0 5px 15px rgba(0, 0, 0, 0.08);
+        cursor: default;
+      }
+
+      .flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 150px solid transparent;
+        border-right: 150px solid transparent;
+        border-top: 110px solid #ed6888;
+        transform-origin: top;
+        transition: transform 0.6s 0.2s ease-in-out;
+        z-index: 5;
+        pointer-events: none;
+      }
+
+      .pocket-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-left: 150px solid #e25d7e;
+        border-right: 150px solid #e25d7e;
+        border-bottom: 110px solid #d44367;
+        border-top: 90px solid transparent;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        border-radius: 0 0 8px 8px;
+        pointer-events: none;
+      }
+
+      /* --- TEASER LETTER --- */
+      .letter-teaser {
+        position: absolute;
+        bottom: 0;
+        left: 15px;
+        width: 270px;
+        height: 180px;
+        background: #fff8fa;
+        padding: 20px;
+        z-index: 2;
+        transition: transform 0.8s 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: 1px solid #fecdd3;
+        box-shadow: 0 -2px 10px rgba(244, 63, 94, 0.15);
+        pointer-events: none;
+      }
+
+      .letter-teaser p {
+        font-family: "Poppins", sans-serif;
+        font-size: 13px;
+        color: #831843;
+        font-weight: 500;
+        line-height: 1.6;
+      }
+
+      /* --- 3. BUTTONS --- */
+      .btn-open-env {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        background: linear-gradient(135deg, #fb7185, #e11d48);
+        color: #ffffff;
+        border: 3px solid #be123c;
+        padding: 0;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4);
+        transition: all 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        pointer-events: auto;
+      }
+
+      .btn-open-env:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+        background: linear-gradient(135deg, #f43f5e, #be123c);
+        box-shadow: 0 6px 20px rgba(225, 29, 72, 0.55);
+      }
+
+      .btn-read-more {
+        margin-top: 15px;
+        background: linear-gradient(135deg, #f43f5e, #e11d48);
+        color: white;
+        border: none;
+        padding: 8px 22px;
+        font-size: 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: "Poppins", sans-serif;
+        box-shadow: 0 3px 10px rgba(244, 63, 94, 0.3);
+      }
+
+      .btn-read-more:hover {
+        background: linear-gradient(135deg, #e11d48, #be123c);
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(225, 29, 72, 0.45);
+      }
+
+      /* --- 4. ANIMATIONS --- */
+      .envelope-wrapper.open .flap {
+        transform: rotateX(180deg);
+        z-index: 1;
+      }
+
+      .envelope-wrapper.open .letter-teaser {
+        transform: translateY(-90px);
+        z-index: 3;
+        pointer-events: auto;
+      }
+
+      .envelope-wrapper.open .btn-open-env {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+
+      /* ============================================================
+         5. A4 LETTER OVERLAY — the full-screen backdrop
+         ============================================================ */
+      .letter-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(80, 5, 20, 0.45);
+        backdrop-filter: blur(6px);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .letter-overlay.active { display: flex; }
+
+      /* ============================================================
+         5b. THE A4 PAPER CARD (Compact & Perfectly Framed)
+         ============================================================ */
+      .a4-paper {
+        position: relative;
+        width: 92%;
+        max-width: 480px;
+        max-height: 80vh;
+        background: #fffdf8;
+        border-radius: 8px;
+        box-shadow:
+          0 4px 15px rgba(0,0,0,0.08),
+          0 18px 50px rgba(80,5,20,0.22),
+          inset 0 0 0 1px rgba(200,150,160,0.25);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        animation: paperDrop 0.55s cubic-bezier(0.34, 1.36, 0.64, 1) both;
+      }
+
+      @keyframes paperDrop {
+        from { opacity: 0; transform: scale(0.88) translateY(30px); }
+        to   { opacity: 1; transform: scale(1) translateY(0); }
+      }
+
+      /* Left red margin line — authentic letter pad */
+      .a4-paper::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 48px; bottom: 0;
+        width: 1.5px;
+        background: rgba(225, 29, 72, 0.16);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Ruled lines across the page */
+      .a4-paper::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          to bottom,
+          transparent,
+          transparent 31px,
+          rgba(200, 160, 175, 0.16) 31px,
+          rgba(200, 160, 175, 0.16) 32px
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* ============================================================
+         5c. PAPER HEADER BAND
+         ============================================================ */
+      .paper-header {
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(135deg, #be123c, #e05375);
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+      }
+
+      .paper-header .letter-title {
+        font-family: "Playfair Display", serif;
+        font-size: 0.92rem;
+        font-style: italic;
+        color: rgba(255,255,255,0.95);
+        letter-spacing: 0.08em;
+      }
+
+      .paper-header .page-counter {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.7rem;
+        color: rgba(255,255,255,0.7);
+        letter-spacing: 0.05em;
+      }
+
+      /* ============================================================
+         5d. SWIPE TRACK
+         ============================================================ */
+      .pages-track-wrap {
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+        touch-action: pan-y;
+        cursor: grab;
+      }
+      .pages-track-wrap:active { cursor: grabbing; }
+
+      .pages-track {
+        display: flex;
+        height: 100%;
+        will-change: transform;
+        transition: transform 0.52s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* ============================================================
+         5e. INDIVIDUAL PAGE (Compact & Fully Viewable)
+         ============================================================ */
+      .page {
+        min-width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        box-sizing: border-box;
+        padding: 22px 20px 16px 54px;   /* extra left for margin line */
+        scroll-behavior: smooth;
+      }
+
+      /* Scrollbar for page overflow */
+      .page::-webkit-scrollbar { width: 4px; }
+      .page::-webkit-scrollbar-track { background: transparent; }
+      .page::-webkit-scrollbar-thumb { background: #fca5a5; border-radius: 2px; }
+
+      /* ============================================================
+         5f. CONTENT TYPOGRAPHY
+         ============================================================ */
+
+      /* "Dear My Love," greeting */
+      .letter-greeting {
+        font-family: "Playfair Display", serif;
+        font-size: 1.55rem;
+        font-style: italic;
+        color: #9f0a2a;
+        margin-bottom: 12px;
+        line-height: 1.25;
+        text-align: left;
+      }
+
+      /* Section sub-headings */
+      .letter-subheading {
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        font-style: italic;
+        color: #be123c;
+        margin-bottom: 12px;
+        text-align: left;
+        border-bottom: 1px solid #fecdd3;
+        padding-bottom: 4px;
+      }
+
+      /* Body paragraphs */
+      .letter-body {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #2d0a14;
+        line-height: 1.78;
+        margin-bottom: 12px;
+        text-align: justify;
+        text-justify: inter-word;
+        letter-spacing: 0.01em;
+      }
+
+      /* Drop cap on first paragraph */
+      .letter-body.dropcap::first-letter {
+        font-family: "Playfair Display", serif;
+        font-size: 3.2rem;
+        font-weight: 700;
+        color: #be123c;
+        float: left;
+        line-height: 0.8;
+        margin: 4px 6px -2px 0;
+      }
+
+      /* Date line */
+      .letter-date {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 0.85rem;
+        font-style: italic;
+        color: #c97b8e;
+        text-align: right;
+        margin-bottom: 14px;
+      }
+
+      /* Divider flourish */
+      .letter-divider {
+        text-align: center;
+        color: #e11d48;
+        font-size: 0.95rem;
+        letter-spacing: 0.4em;
+        margin: 10px 0;
+        opacity: 0.65;
+      }
+
+      /* Proper Ending Block & Wax Seal */
+      .proper-ending {
+        margin-top: 10px;
+        padding-top: 4px;
+        text-align: right;
+      }
+
+      .wax-seal-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0 12px;
+      }
+      .wax-seal {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #be123c, #9f0a2a);
+        color: #fff;
+        padding: 5px 16px;
+        border-radius: 30px;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: 0 4px 12px rgba(159, 10, 42, 0.32), inset 0 1px 1px rgba(255,255,255,0.3);
+        border: 1px solid rgba(254, 205, 211, 0.4);
+      }
+
+      .letter-promise {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.08rem;
+        font-style: italic;
+        font-weight: 500;
+        color: #7f1d35;
+        line-height: 1.75;
+        background: rgba(255, 241, 245, 0.7);
+        border-left: 3px solid #e11d48;
+        padding: 10px 14px;
+        border-radius: 0 8px 8px 0;
+        margin: 10px 0 14px;
+        text-align: justify;
+      }
+
+      .letter-signature {
+        font-family: "Playfair Display", serif;
+        font-size: 1.18rem;
+        font-style: italic;
+        color: #be123c;
+        text-align: right;
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      .btn-close-letter {
+        background: linear-gradient(135deg, #e11d48, #be123c);
+        color: #fff;
+        border: none;
+        padding: 9px 24px;
+        border-radius: 22px;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(225, 29, 72, 0.28);
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: inline-block;
+      }
+      .btn-close-letter:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 6px 18px rgba(225, 29, 72, 0.4);
+      }
+
+      /* ============================================================
+         5g. BOTTOM NAV BAR
+         ============================================================ */
+      .letter-nav {
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(to right, #fff0f3, #ffe4ea);
+        border-top: 1px solid #fecdd3;
+        padding: 8px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+
+      .nav-arrow {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #be123c;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s, transform 0.2s;
+        padding: 3px 10px;
+        line-height: 1;
+        font-weight: 300;
+        flex-shrink: 0;
+      }
+      .nav-arrow:hover:not(:disabled) { opacity: 1; transform: scale(1.2); }
+      .nav-arrow:disabled { opacity: 0.2; cursor: default; }
+
+      .page-dots {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex: 1;
+        justify-content: center;
+      }
+      .dot {
+        width: 7px; height: 7px;
+        border-radius: 50%;
+        background: #fca5a5;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+      }
+      .dot.active { background: #be123c; transform: scale(1.4); }
+
+      .drag-hint {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.62rem;
+        color: #e46b88;
+        letter-spacing: 0.05em;
+        text-align: center;
+        flex: 1;
+        animation: pulse 2.5s infinite;
+        pointer-events: none;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.45; }
+        50% { opacity: 1; }
+      }
+
+      /* ============================================================
+         ANIMATIONS & SHARED
+         ============================================================ */
+      @keyframes popIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to   { opacity: 1; transform: scale(1); }
+      }
+
+      .heart {
+        position: absolute;
+        bottom: -20px;
+        animation: floatUp linear forwards;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.85;
+      }
+
+      @keyframes floatUp {
+        from { transform: translateY(0);      opacity: 0.85; }
+        to   { transform: translateY(-120vh); opacity: 0; }
+      }
+
+      /* ============================================================
+         FEATURE 1 — LOVE PROGRESS BAR (heart fills as pages turn)
+         ============================================================ */
+      .love-progress-wrap {
+        position: relative;
+        z-index: 3;
+        background: #ffe4ea;
+        height: 6px;
+        width: 100%;
+        flex-shrink: 0;
+        overflow: visible;
+      }
+      .love-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #fb7185, #e11d48);
+        transition: width 0.6s cubic-bezier(0.34, 1.3, 0.64, 1);
+        width: 0%;
+        border-radius: 0 3px 3px 0;
+      }
+      .love-heart-icon {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.15rem;
+        transition: left 0.6s cubic-bezier(0.34, 1.3, 0.64, 1);
+        filter: drop-shadow(0 0 4px rgba(225,29,72,0.5));
+        pointer-events: none;
+        animation: heartBeat 1.2s ease infinite;
+      }
+      @keyframes heartBeat {
+        0%, 100% { transform: translate(-50%, -50%) scale(1); }
+        50%       { transform: translate(-50%, -50%) scale(1.3); }
+      }
+
+      /* ============================================================
+         FEATURE 2 — CURSOR HEART TRAIL
+         ============================================================ */
+      .cursor-trail {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        font-size: 14px;
+        animation: trailFade 0.8s ease forwards;
+        user-select: none;
+      }
+      @keyframes trailFade {
+        0%   { opacity: 1;   transform: scale(1) translateY(0); }
+        100% { opacity: 0;   transform: scale(0.4) translateY(-22px); }
+      }
+
+      /* ============================================================
+         FEATURE 3 — TYPEWRITER  (characters revealed via clip)
+         ============================================================ */
+      .typewriter-ready {
+        /* text is hidden until JS reveals it */
+        overflow: hidden;
+      }
+      .typewriter-char {
+        display: inline;
+        opacity: 0;
+        transition: opacity 0s;
+      }
+      .typewriter-char.revealed {
+        opacity: 1;
+      }
+
+      /* ============================================================
+         FEATURE 4 — NAME BADGE on header
+         ============================================================ */
+      .name-badge {
+        font-family: "Playfair Display", serif;
+        font-size: 0.76rem;
+        font-style: italic;
+        color: #fff;
+        background: rgba(255,255,255,0.22);
+        border: 1px solid rgba(255,255,255,0.38);
+        border-radius: 20px;
+        padding: 2px 12px;
+        letter-spacing: 0.05em;
+        backdrop-filter: blur(4px);
+      }
+
+      @media (max-width: 500px) {
+        .envelope { width: 260px; height: 180px; }
+        .letter-teaser { width: 230px; height: 160px; }
+        .flap, .pocket-overlay {
+          border-left-width: 130px;
+          border-right-width: 130px;
+        }
+        .a4-paper { max-height: 85vh; width: 95%; }
+        .page { padding: 18px 16px 14px 42px; }
+        .letter-greeting { font-size: 1.4rem; }
+        .letter-body { font-size: 1.02rem; line-height: 1.72; }
+        .paper-header { padding: 8px 14px; }
+        .a4-paper::before { left: 36px; }
+      }
+
+      /* ============================================================
+         6. CONTRACT WITH DEVELOPER — floating edge tab
+         ============================================================ */
+      .dev-contract-btn {
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%) translateX(64%);
+        z-index: 150;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.32);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-right: none;
+        color: #831843;
+        padding: 13px 18px 13px 14px;
+        border-radius: 30px 0 0 30px;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        cursor: pointer;
+        box-shadow: -4px 4px 18px rgba(190, 18, 60, 0.18),
+          inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        transition: transform 0.45s cubic-bezier(0.34, 1.3, 0.64, 1),
+          box-shadow 0.35s ease, background 0.3s ease;
+        animation: devGlow 3.4s ease-in-out infinite;
+      }
+      .dev-contract-btn:hover,
+      .dev-contract-btn:focus-visible {
+        transform: translateY(-50%) translateX(0);
+        background: rgba(255, 255, 255, 0.55);
+        box-shadow: -6px 6px 26px rgba(190, 18, 60, 0.3),
+          inset 0 1px 1px rgba(255, 255, 255, 0.7);
+      }
+      .dev-contract-btn:focus-visible {
+        outline: 2px solid #be123c;
+        outline-offset: 3px;
+      }
+      .dev-contract-btn .dev-btn-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        flex-shrink: 0;
+        font-size: 15px;
+      }
+      @keyframes devGlow {
+        0%, 100% { box-shadow: -4px 4px 18px rgba(190, 18, 60, 0.18), inset 0 1px 1px rgba(255,255,255,0.6); }
+        50%      { box-shadow: -4px 4px 26px rgba(225, 29, 72, 0.38), inset 0 1px 1px rgba(255,255,255,0.6); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .dev-contract-btn { animation: none; transition: none; }
+      }
+
+      @media (max-width: 640px) {
+        .dev-contract-btn {
+          top: auto;
+          bottom: 22px;
+          right: 14px;
+          transform: translateX(0);
+          border-radius: 50%;
+          padding: 14px;
+          box-shadow: 0 4px 16px rgba(190, 18, 60, 0.3),
+            inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+        .dev-contract-btn:hover,
+        .dev-contract-btn:focus-visible { transform: translateX(0) scale(1.06); }
+        .dev-contract-btn .dev-btn-text { display: none; }
+      }
+
+      /* ============================================================
+         6b. DEVELOPER PANEL — glass modal
+         ============================================================ */
+      .dev-panel-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(30, 3, 12, 0.55);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 400;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .dev-panel-overlay.active { display: flex; }
+
+      .dev-panel {
+        position: relative;
+        width: 100%;
+        max-width: 380px;
+        max-height: 88vh;
+        overflow-y: auto;
+        background: linear-gradient(155deg, rgba(255, 245, 248, 0.92), rgba(255, 228, 234, 0.88));
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 22px;
+        padding: 30px 26px 24px;
+        box-shadow: 0 20px 60px rgba(80, 5, 20, 0.35),
+          inset 0 1px 1px rgba(255, 255, 255, 0.7);
+        animation: paperDrop 0.5s cubic-bezier(0.34, 1.36, 0.64, 1) both;
+        color: #4a1525;
+      }
+
+      .dev-panel-close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid rgba(190, 18, 60, 0.25);
+        background: rgba(255, 255, 255, 0.6);
+        color: #9f0a2a;
+        font-size: 16px;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, transform 0.2s;
+      }
+      .dev-panel-close:hover { background: #fff; transform: scale(1.08); }
+      .dev-panel-close:focus-visible { outline: 2px solid #be123c; outline-offset: 2px; }
+
+      .dev-panel-avatar {
+        width: 58px;
+        height: 58px;
+        margin: 0 auto 14px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #fb7185, #be123c);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        box-shadow: 0 6px 18px rgba(190, 18, 60, 0.35);
+      }
+
+      .dev-panel-kicker {
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #c9385c;
+        margin-bottom: 4px;
+      }
+
+      .dev-panel-name {
+        text-align: center;
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #831843;
+        margin-bottom: 6px;
+      }
+
+      .dev-panel-role {
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.72rem;
+        color: #9d5a6d;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .dev-panel-divider {
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(190, 18, 60, 0.25), transparent);
+        margin-bottom: 18px;
+      }
+
+      .dev-social-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .dev-social-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 11px 14px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        color: #4a1525;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+      .dev-social-link:hover,
+      .dev-social-link:focus-visible {
+        transform: translateX(4px);
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 6px 16px rgba(190, 18, 60, 0.18);
+      }
+      .dev-social-link:focus-visible {
+        outline: 2px solid #be123c;
+        outline-offset: 2px;
+      }
+
+      .dev-social-icon {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+      .dev-social-icon.fb { background: #3b5998; }
+      .dev-social-icon.ig { background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+      .dev-social-icon.yt { background: #ff0033; }
+      .dev-social-icon.gh { background: #24292e; }
+      .dev-social-icon svg { width: 19px; height: 19px; }
+
+      .dev-social-text { display: flex; flex-direction: column; gap: 1px; }
+      .dev-social-platform {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #4a1525;
+      }
+      .dev-social-sub {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.68rem;
+        color: #a1607a;
+      }
+
+      @media (max-width: 400px) {
+        .dev-panel { padding: 24px 18px 20px; }
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="envelope-wrapper" id="envelopeWrapper">
+      <div class="envelope">
+        <div class="back"></div>
+        <div class="flap"></div>
+
+        <button class="btn-open-env" onclick="openEnvelope()">
+          Open<br />Here
+        </button>
+
+        <div class="letter-teaser">
+          <p>
+            To the one who holds my heart... <br />
+            Some feelings are too deep for words, <br />
+            so I wrote this letter <br />
+            just for you... 💕
+          </p>
+          <button class="btn-read-more" onclick="showFullLetter()">
+            Read More
+          </button>
+        </div>
+
+        <div class="pocket-overlay"></div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         A4 LETTER OVERLAY
+         ============================================================ -->
+    <div class="letter-overlay" id="letterOverlay">
+      <div class="a4-paper" id="a4Paper">
+
+        <!-- TOP HEADER BAND -->
+        <div class="paper-header">
+          <span class="letter-title">A Letter for You</span>
+          <span class="name-badge">For My Love 💌</span>
+          <span class="page-counter" id="pageCounter">Page 1 of 2</span>
+        </div>
+
+        <!-- LOVE PROGRESS BAR (Feature 1) -->
+        <div class="love-progress-wrap">
+          <div class="love-progress-fill" id="loveProgressFill"></div>
+          <span class="love-heart-icon" id="loveHeartIcon">❤️</span>
+        </div>
+
+        <!-- SWIPE TRACK -->
+        <div class="pages-track-wrap" id="trackWrap">
+          <div class="pages-track" id="pagesTrack">
+
+            <!-- ═══════════════ PAGE 1 ═══════════════ -->
+            <div class="page">
+              <p class="letter-date">Written with all my heart & soul ✨❤️</p>
+
+              <h1 class="letter-greeting">Dear My Love, 🌹</h1>
+
+              <p class="letter-body dropcap tw-target">
+                They say home isn't just a place — it's a person 🏡💫. And from the very first moment you walked into my life, my restless heart quietly exhaled, knowing it had finally found where it truly belongs 🥺💖. Whenever you are near me, every shadow, every doubt, and all the chaotic noise of this world simply melts away... leaving behind only the gentle, peaceful warmth of your presence and the steady truth that my heart was made to love yours 🕊️✨.
+              </p>
+
+              <div class="letter-divider">✦ &nbsp; 💖 &nbsp; ✦</div>
+
+              <p class="letter-body tw-target">
+                From the sweet sparkle in your eyes to the tenderness of your smile, you have quietly become my favorite thought in every morning and my sweetest peace at night 🌙🌸. Loving you isn't something I ever had to try to do; it happened as naturally as breathing, as inevitable as sunrise 🌅. You are my greatest blessing, My Love, and every single moment shared with you is a treasure I will guard with my whole soul forever... 🥺❤️‍🔥
+              </p>
+            </div>
+
+            <!-- ═══════════════ PAGE 2 ═══════════════ -->
+            <div class="page">
+              <h2 class="letter-subheading">Forever In My Heart... 💫</h2>
+
+              <p class="letter-body dropcap tw-target">
+                No amount of words in any language could ever measure how deeply you are etched into my soul 🥺💞. It is in the quiet comfort of your voice, the warmth of your hands in mine, and the sweet melody of your laughter that lights up even my darkest days ✨. You turn ordinary, passing hours into timeless memories I hold onto with both hands. In this fleeting, rushing world, you are my stillness, my purest dream, and my safest sanctuary 🌸🕊️.
+              </p>
+
+              <p class="letter-body tw-target">
+                Through every changing season, through every heavy storm and every golden sunset, my heart will always, without a single heartbeat of hesitation, choose you 💍❤️. Thank you for loving me so gently, for believing in us, and for making my world so soft, so bright, and so full of meaning 🥺🌹✨.
+              </p>
+
+              <div class="letter-divider">❧ &nbsp; 🌹 &nbsp; ❧</div>
+
+              <div class="proper-ending">
+                <div class="wax-seal-wrap">
+                  <span class="wax-seal">💌 Sealed With Eternal Love 💌</span>
+                </div>
+                <p class="letter-promise tw-target">
+                  "My sacred promise to you: I will cherish you in the quiet mornings, protect your smile through the hardest storms, and love you more deeply with every breath I take. In this lifetime and in every tomorrow that follows... you are my one, my only, and my forever." 🥺💍✨
+                </p>
+                <p class="letter-signature">
+                  Yours eternally, with all my heart & soul,<br/>
+                  — <em>My Love</em> &nbsp;❤️
+                </p>
+                <div style="text-align: center; margin-top: 14px; margin-bottom: 6px;">
+                  <button class="btn-close-letter" onclick="closeLetter()">
+                    Seal & Keep Close to My Heart 💖
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- end .pages-track -->
+        </div><!-- end .pages-track-wrap -->
+
+        <!-- BOTTOM NAV -->
+        <div class="letter-nav">
+          <button class="nav-arrow" id="prevArrow" onclick="goToPage(currentPage - 1)" disabled>&#8249;</button>
+          <span class="drag-hint">← swipe or click to turn page →</span>
+          <div class="page-dots" id="pageDots"></div>
+          <button class="nav-arrow" id="nextArrow" onclick="goToPage(currentPage + 1)">&#8250;</button>
+        </div>
+
+      </div><!-- end .a4-paper -->
+    </div><!-- end .letter-overlay -->
+
+    <!-- ============================================================
+         CONTRACT WITH DEVELOPER — floating button + panel
+         ============================================================ -->
+    <button
+      class="dev-contract-btn"
+      id="devContractBtn"
+      type="button"
+      aria-haspopup="dialog"
+      aria-expanded="false"
+      aria-controls="devPanel"
+      aria-label="Contract with Developer — view developer's social profiles"
+      onclick="openDevPanel()"
+    >
+      <span class="dev-btn-icon" aria-hidden="true">💻</span>
+      <span class="dev-btn-text">Contract With Developer</span>
+    </button>
+
+    <div class="dev-panel-overlay" id="devPanelOverlay">
+      <div
+        class="dev-panel"
+        id="devPanel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="devPanelName"
+      >
+        <button
+          class="dev-panel-close"
+          type="button"
+          aria-label="Close developer panel"
+          onclick="closeDevPanel()"
+        >✕</button>
+
+        <div class="dev-panel-avatar" aria-hidden="true">MF</div>
+        <p class="dev-panel-kicker">Developed By</p>
+        <h2 class="dev-panel-name" id="devPanelName">MD. FAHAD HOSSAIN</h2>
+        <p class="dev-panel-role">Software Developer • Web Developer • Android Developer • Cybersecurity</p>
+
+        <div class="dev-panel-divider"></div>
+
+        <ul class="dev-social-list">
+          <li>
+            <a class="dev-social-link" href="https://www.facebook.com/share/1D7ExweqoM/" target="_blank" rel="noopener noreferrer" aria-label="Visit Facebook profile">
+              <span class="dev-social-icon fb" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.45 2.91h-2.33V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>
+              </span>
+              <span class="dev-social-text">
+                <span class="dev-social-platform">Facebook</span>
+                <span class="dev-social-sub">Connect / Visit Profile</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="dev-social-link" href="https://www.instagram.com/mdfahadhossain006?igsh=ZzhhbzljaXVxcmFw" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram profile">
+              <span class="dev-social-icon ig" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+              </span>
+              <span class="dev-social-text">
+                <span class="dev-social-platform">Instagram</span>
+                <span class="dev-social-sub">Connect / Visit Profile</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="dev-social-link" href="https://youtube.com/@brightnessworld?si=0pf1lSEkvWSLXASs" target="_blank" rel="noopener noreferrer" aria-label="Visit YouTube channel">
+              <span class="dev-social-icon yt" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.75 15.02 15.5 12 9.75 8.98v6.04z" fill="#fff"/><path d="M23 12s0-3.6-.46-5.32a3 3 0 0 0-2.12-2.12C18.6 4 12 4 12 4s-6.6 0-8.42.56a3 3 0 0 0-2.12 2.12C1 8.4 1 12 1 12s0 3.6.46 5.32a3 3 0 0 0 2.12 2.12C5.4 20 12 20 12 20s6.6 0 8.42-.56a3 3 0 0 0 2.12-2.12C23 15.6 23 12 23 12z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              </span>
+              <span class="dev-social-text">
+                <span class="dev-social-platform">YouTube</span>
+                <span class="dev-social-sub">Watch Channel</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="dev-social-link" href="https://github.com/MdFahadHossain006" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile">
+              <span class="dev-social-icon gh" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.55 2.87 8.41 6.84 9.77.5.1.68-.22.68-.5 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.19-1.11-1.51-1.11-1.51-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .28.18.61.69.5A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+              </span>
+              <span class="dev-social-text">
+                <span class="dev-social-platform">GitHub</span>
+                <span class="dev-social-sub">View Projects</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      /* ======================================================
+         CONTRACT WITH DEVELOPER — panel controls
+      ====================================================== */
+      let devPanelLastFocus = null;
+
+      function openDevPanel() {
+        const overlay = document.getElementById("devPanelOverlay");
+        const btn = document.getElementById("devContractBtn");
+        devPanelLastFocus = document.activeElement;
+        overlay.classList.add("active");
+        btn.setAttribute("aria-expanded", "true");
+        const closeBtn = overlay.querySelector(".dev-panel-close");
+        if (closeBtn) closeBtn.focus();
+        document.addEventListener("keydown", handleDevPanelKeydown);
+      }
+
+      function closeDevPanel() {
+        const overlay = document.getElementById("devPanelOverlay");
+        const btn = document.getElementById("devContractBtn");
+        overlay.classList.remove("active");
+        btn.setAttribute("aria-expanded", "false");
+        document.removeEventListener("keydown", handleDevPanelKeydown);
+        if (devPanelLastFocus) devPanelLastFocus.focus();
+        else btn.focus();
+      }
+
+      function handleDevPanelKeydown(e) {
+        if (e.key === "Escape") {
+          closeDevPanel();
+          return;
+        }
+        if (e.key === "Tab") {
+          const panel = document.getElementById("devPanel");
+          const focusables = panel.querySelectorAll('a[href], button:not([disabled])');
+          if (!focusables.length) return;
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+
+      document.getElementById("devPanelOverlay").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) closeDevPanel();
+      });
+    </script>
+
+    <script>
+      /* ======================================================
+         ENVELOPE & LETTER CONTROLS
+      ====================================================== */
+      function openEnvelope() {
+        document.getElementById("envelopeWrapper").classList.add("open");
+      }
+
+      function showFullLetter() {
+        const wrapper = document.getElementById("envelopeWrapper");
+        wrapper.style.opacity = "0";
+        wrapper.style.transform = "scale(0.8)";
+        setTimeout(() => {
+          wrapper.style.display = "none";
+          const overlay = document.getElementById("letterOverlay");
+          overlay.classList.add("active");
+          initSwipeBook();
+        }, 600);
+      }
+
+      function closeLetter() {
+        const overlay = document.getElementById("letterOverlay");
+        overlay.classList.remove("active");
+        const wrapper = document.getElementById("envelopeWrapper");
+        wrapper.style.display = "block";
+        swipeInit = false;
+        currentPage = 0;
+        twDone.clear();
+        setTimeout(() => {
+          wrapper.style.opacity = "1";
+          wrapper.style.transform = "scale(1)";
+        }, 50);
+      }
+
+      /* ======================================================
+         SWIPE / DRAG BOOK (2 PAGES)
+      ====================================================== */
+      const TOTAL_PAGES = 2;
+      let currentPage = 0;
+      let swipeInit   = false;
+
+      function initSwipeBook() {
+        if (swipeInit) return;
+        swipeInit = true;
+
+        prepareAllTypewriter();
+        buildDots();
+        updateBook(false);
+        startTypewritePage(0);
+
+        const track = document.getElementById("pagesTrack");
+        const wrap  = document.getElementById("trackWrap");
+
+        /* ---------- Mouse drag ---------- */
+        let startX = 0, isDragging = false, dragDelta = 0;
+
+        wrap.addEventListener("mousedown", e => {
+          startX     = e.clientX;
+          isDragging = true;
+          dragDelta  = 0;
+          track.style.transition = "none";
+          e.preventDefault();
+        });
+        window.addEventListener("mousemove", e => {
+          if (!isDragging) return;
+          dragDelta = e.clientX - startX;
+          track.style.transform =
+            `translateX(calc(${-currentPage * 100}% + ${dragDelta}px))`;
+        });
+        window.addEventListener("mouseup", () => {
+          if (!isDragging) return;
+          isDragging = false;
+          track.style.transition = "";
+          const threshold = wrap.offsetWidth * 0.18;
+          if      (dragDelta < -threshold && currentPage < TOTAL_PAGES - 1) goToPage(currentPage + 1);
+          else if (dragDelta >  threshold && currentPage > 0)               goToPage(currentPage - 1);
+          else                                                               updateBook(true);
+        });
+
+        /* ---------- Touch swipe ---------- */
+        let touchStartX = 0;
+        wrap.addEventListener("touchstart", e => {
+          touchStartX = e.touches[0].clientX;
+          track.style.transition = "none";
+        }, { passive: true });
+        wrap.addEventListener("touchmove", e => {
+          const delta = e.touches[0].clientX - touchStartX;
+          track.style.transform =
+            `translateX(calc(${-currentPage * 100}% + ${delta}px))`;
+        }, { passive: true });
+        wrap.addEventListener("touchend", e => {
+          track.style.transition = "";
+          const delta     = e.changedTouches[0].clientX - touchStartX;
+          const threshold = wrap.offsetWidth * 0.18;
+          if      (delta < -threshold && currentPage < TOTAL_PAGES - 1) goToPage(currentPage + 1);
+          else if (delta >  threshold && currentPage > 0)               goToPage(currentPage - 1);
+          else                                                           updateBook(true);
+        }, { passive: true });
+      }
+
+      function goToPage(n) {
+        if (n < 0 || n >= TOTAL_PAGES) return;
+        currentPage = n;
+        updateBook(true);
+        startTypewritePage(n);
+      }
+
+      function updateBook(animate) {
+        const track = document.getElementById("pagesTrack");
+        if (!animate) track.style.transition = "none";
+        track.style.transform = `translateX(${-currentPage * 100}%)`;
+        if (!animate) { void track.offsetHeight; track.style.transition = ""; }
+
+        /* Scroll current page back to top */
+        const pages = document.querySelectorAll(".page");
+        if (pages[currentPage]) pages[currentPage].scrollTop = 0;
+
+        /* Arrows & Hint */
+        const prevArrow = document.getElementById("prevArrow");
+        const nextArrow = document.getElementById("nextArrow");
+        const hint      = document.querySelector(".drag-hint");
+
+        prevArrow.disabled = currentPage === 0;
+
+        if (currentPage === TOTAL_PAGES - 1) {
+          nextArrow.innerHTML = "💌";
+          nextArrow.title = "Seal Letter";
+          nextArrow.disabled = false;
+          nextArrow.onclick = () => closeLetter();
+          if (hint) hint.innerHTML = "✨ Complete • Sealed with Love ✨";
+        } else {
+          nextArrow.innerHTML = "&#8250;";
+          nextArrow.title = "Next Page";
+          nextArrow.disabled = false;
+          nextArrow.onclick = () => goToPage(currentPage + 1);
+          if (hint) hint.innerHTML = "&larr; swipe or click to turn page &rarr;";
+        }
+
+        /* Counter */
+        document.getElementById("pageCounter").textContent =
+          `Page ${currentPage + 1} of ${TOTAL_PAGES}`;
+
+        /* Dots */
+        document.querySelectorAll(".dot").forEach((d, i) =>
+          d.classList.toggle("active", i === currentPage)
+        );
+
+        /* Love progress bar */
+        updateProgressBar();
+      }
+
+      function buildDots() {
+        const container = document.getElementById("pageDots");
+        container.innerHTML = "";
+        for (let i = 0; i < TOTAL_PAGES; i++) {
+          const d = document.createElement("span");
+          d.className = "dot" + (i === 0 ? " active" : "");
+          d.onclick = () => goToPage(i);
+          container.appendChild(d);
+        }
+      }
+
+      /* ======================================================
+         FEATURE 1 — LOVE PROGRESS BAR
+      ====================================================== */
+      function updateProgressBar() {
+        const pct  = TOTAL_PAGES > 1 ? Math.round((currentPage / (TOTAL_PAGES - 1)) * 100) : 100;
+        const fill = document.getElementById("loveProgressFill");
+        const icon = document.getElementById("loveHeartIcon");
+        if (!fill || !icon) return;
+        fill.style.width = pct + "%";
+        icon.style.left  = pct + "%";
+        icon.textContent = pct === 100 ? "💖" : "❤️";
+      }
+
+      /* ======================================================
+         FEATURE 2 — CURSOR HEART TRAIL
+      ====================================================== */
+      const trailIcons = ["❤️","💕","💗","💖","🌸","✨"];
+      let lastTrail = 0;
+      document.addEventListener("mousemove", e => {
+        const now = Date.now();
+        if (now - lastTrail < 80) return;
+        lastTrail = now;
+        const el = document.createElement("span");
+        el.className = "cursor-trail";
+        el.textContent = trailIcons[Math.floor(Math.random() * trailIcons.length)];
+        el.style.left = e.clientX + "px";
+        el.style.top  = e.clientY + "px";
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 800);
+      });
+
+      /* ======================================================
+         FEATURE 3 — TYPEWRITER EFFECT (ROBUST & RELIABLE)
+      ====================================================== */
+      const twDone = new Set();
+
+      function prepareAllTypewriter() {
+        const pages = document.querySelectorAll(".page");
+        pages.forEach((page) => {
+          const targets = page.querySelectorAll(".tw-target");
+          targets.forEach(para => {
+            if (para.dataset.prepared) return;
+            para.dataset.prepared = "true";
+
+            const walker = document.createTreeWalker(para, NodeFilter.SHOW_TEXT);
+            const textNodes = [];
+            let node;
+            while ((node = walker.nextNode())) textNodes.push(node);
+
+            textNodes.forEach(textNode => {
+              const parent = textNode.parentNode;
+              const text   = textNode.textContent;
+              const frag   = document.createDocumentFragment();
+              [...text].forEach(ch => {
+                const span = document.createElement("span");
+                span.className = "typewriter-char";
+                span.textContent = ch;
+                frag.appendChild(span);
+              });
+              parent.replaceChild(frag, textNode);
+            });
+          });
+
+          // Double-click page to instantly reveal all text if in a hurry
+          page.addEventListener("dblclick", () => {
+            page.querySelectorAll(".typewriter-char").forEach(s => s.classList.add("revealed"));
+          });
+        });
+      }
+
+      function startTypewritePage(pageIndex) {
+        if (twDone.has(pageIndex)) return;
+        twDone.add(pageIndex);
+
+        const pages = document.querySelectorAll(".page");
+        const page  = pages[pageIndex];
+        if (!page) return;
+
+        const chars = page.querySelectorAll(".typewriter-char");
+        let delay = 350; // allow swipe transition to settle
+
+        chars.forEach((span) => {
+          setTimeout(() => {
+            span.classList.add("revealed");
+          }, delay);
+          delay += 11;
+        });
+      }
+
+      /* ======================================================
+         FLOATING HEARTS (background)
+      ====================================================== */
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        const icons = ["❤️","💖","💕","💗","💓","🌸","✨"];
+        heart.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+        heart.style.left              = Math.random() * 100 + "vw";
+        heart.style.fontSize          = Math.random() * 18 + 12 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+        heart.style.opacity           = Math.random() * 0.5 + 0.45;
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+      }
+      setInterval(createHeart, 300);
+    </script>
+  </body>
+</html>
+
