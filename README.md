@@ -449,10 +449,12 @@ Possible future additions:
 ## 👨‍💻 DEVELOPER
 
  **MD FAHAD HOSSAIN** 
- 
-<img src="[https://i.postimg.cc/DZQ8Tmcc/Whats-App-Image-2026-09-119-at-1-26-32-AM.jpg]" style="border-radius:50%;">
+ <div align="center">
+   
+<img src="https://i.postimg.cc/DZQ8Tmcc/Whats-App-Image-2026-09-119-at-1-26-32-AM.jpg" width="190" style="border-radius:80%;">
 
 </div>
+
 
 
 <div align="center">
