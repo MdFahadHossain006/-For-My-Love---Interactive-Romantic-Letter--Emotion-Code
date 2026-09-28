@@ -26,21 +26,31 @@
 
 </div>
 <div align = "center'> 
+<div align="center">
 
-<br><br>
+<a href="https://my-love-animatio-created-by-fahad.netlify.app/" target="_blank">
 
-[![Live Demo](https://img.shields.io/badge/🌐_LIVE_DEMO-FF4D88?style=for-the-badge&logo=googlechrome&logoColor=white)](#-live-demo)
-[![GitHub](https://img.shields.io/badge/GITHUB-111111?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MdFahadHossain006)
-[![Made With Love](https://img.shields.io/badge/MADE_WITH-❤️_LOVE-ff4d88?style=for-the-badge)](#)
-[![Responsive](https://img.shields.io/badge/RESPONSIVE-YES-9b59b6?style=for-the-badge)](#)
+<img
+  src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12,20,24&height=90&section=header&text=💌%20OPEN%20LIVE%20EXPERIENCE&fontSize=25&fontColor=ffffff&animation=twinkling&fontAlignY=55"
+  width="700"
+/>
 
+</a>
+
+<br>
+
+<a href="https://my-love-animatio-created-by-fahad.netlify.app/" target="_blank">
+
+<img
+  src="https://img.shields.io/badge/✨%20LIVE%20PREVIEW%20%7C%20CLICK%20TO%20EXPERIENCE-FF4D88?style=for-the-badge&logo=netlify&logoColor=white"
+  height="45"
+/>
 </div>
-
 ---
 
 <div align="center">
 
-# 💌 FOR MY LOVE
+# 💌 FOR YOUR LOVE
 
 ### *A digital love letter transformed into an interactive experience.*
 
@@ -63,7 +73,7 @@ The journey begins with an animated envelope.
 
 Then...
 
-</div> 
+
 
 ```text
        💌
@@ -88,6 +98,7 @@ Then...
 ```
 
 ---
+</div>  
 
 <div align="center">
 
