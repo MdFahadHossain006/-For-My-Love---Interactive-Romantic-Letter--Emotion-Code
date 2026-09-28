@@ -7,8 +7,25 @@
 <br>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com/?font=Playfair+Display&size=25&duration=2800&pause=900&color=FF4D88&center=true&vCenter=true&width=850&height=60&lines=%F0%9F%92%8C+A+Letter+Written+With+Love;%E2%9C%A8+A+Story+Built+With+Code;%E2%9D%A4%EF%B8%8F+Designed+To+Create+An+Emotion;%F0%9F%8C%B9+HTML+%7C+CSS+%7C+JavaScript" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com/?font=Playfair+Display&size=25&duration=2800&pause=900&color=FF4D88&center=true&vCenter=true&width=850&height=60&lines=%F0%9F%92%8C+A+Letter+Written+With+Love;%E2%9C%A8+A+Story+Built+With+Code;%E2%9D%A4%EF%B8%8F+Designed+To+Create+An+Emotion;%F0%9F%8C%B9+HTML+%7C+CSS+%7C+JavaScript;CREATED+BY+MD+FAHAD+HOSSAIN" alt="Typing SVG" />
+
 </p>
+
+# 🎨 VISUAL DESIGN
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=html,css,js,python,vscode" />
+
+<br><br>
+
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/VS%20Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white"/>
+
+</div>
+<div align = "center'> 
 
 <br><br>
 
@@ -45,6 +62,8 @@ It is an **interactive digital letter** designed to turn a traditional romantic 
 The journey begins with an animated envelope.
 
 Then...
+
+</div> 
 
 ```text
        💌
@@ -176,19 +195,7 @@ The website reacts to the user's interaction.
 
 ---
 
-# 🎨 VISUAL DESIGN
 
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=html,css,js" />
-
-<br><br>
-
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/>
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
-
-</div>
 
 ### 🎨 Design Language
 
