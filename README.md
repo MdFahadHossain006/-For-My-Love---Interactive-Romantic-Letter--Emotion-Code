@@ -2,7 +2,7 @@
 
 <!-- ANIMATED HEADER -->
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:ff4d88,50:ff758c,100:ff7eb3&height=220&section=header&text=FOR%20MY%20LOVE&fontSize=55&fontColor=ffffff&fontAlignY=38&animation=twinkling&desc=An%20Interactive%20Digital%20Love%20Letter&descAlignY=60&descSize=18" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:ff4d88,50:ff758c,100:ff7eb3&height=220&section=header&text=FOR%20YOUR%20LOVE&fontSize=55&fontColor=ffffff&fontAlignY=38&animation=twinkling&desc=An%20Interactive%20Digital%20Love%20Letter&descAlignY=60&descSize=18" width="100%"/>
 
 <br>
 
