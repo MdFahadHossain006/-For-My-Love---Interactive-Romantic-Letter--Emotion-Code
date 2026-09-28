@@ -486,7 +486,7 @@ Possible future additions:
 
 **© 2026 MD. FAHAD HOSSAIN. All Rights Reserved.**
 
-This project is **proprietary software**. Unauthorized copying, distribution, 
+This project is **proprietary Website & Software**. Unauthorized copying, distribution, 
 modification, or use of this code is strictly prohibited.
 
 - ❌ **No forking** without permission
