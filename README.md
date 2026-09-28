@@ -170,15 +170,35 @@ The website reacts to the user's interaction.
 
 ---
 
-# 🎬 ANIMATED PREVIEW
+
+# 🌌 Live Preview
 
 <div align="center">
 
-<!-- Replace this GIF with your own screen recording -->
+<a href="https://i.postimg.cc/mg5VMLG5/IMG-20260728-230925.jpg">
 
-<img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" width="700"/>
+<img
+src="https://i.postimg.cc/cCYt6XZk/Screenshot-2026-09-28-201825.png"
+alt="Web Letter"
+width="70%"
+style="border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.4);"/>
 
-<br>
+<img
+src="https://i.postimg.cc/tJPn72yS/Screenshot-2026-09-28-201838.png"
+alt="Web Letter"
+width="70%"
+style="border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.4);"/>
+
+<img
+src="https://i.postimg.cc/2yvL32mX/Screenshot-2026-09-28-201858.png"
+alt="Web Letter"
+width="70%"
+style="border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.4);"/>
+
+
+
+</a>
+
 
 ### 💕 Open → Read → Swipe → Feel
 
@@ -312,54 +332,6 @@ The interface is designed to adapt between desktop and mobile screens.
 
 ---
 
-# 👨‍💻 DEVELOPER PANEL
-
-A dedicated **CONTRACT WITH DEVELOPER** interface is included.
-
-<div align="center">
-
-### `CONTRACT WITH DEVELOPER`
-
-**MD. FAHAD HOSSAIN**
-
-Software Developer  
-Web Developer  
-Android Developer  
-Cybersecurity
-
-</div>
-
-### 🔗 Social Connections
-
-<div align="center">
-
-[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/share/1D7ExweqoM/)
-
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/mdfahadhossain006)
-
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@brightnessworld)
-
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MdFahadHossain006)
-
-</div>
-
----
-
-# 🛠️ TECH STACK
-
-<div align="center">
-
-### Frontend
-
-<img src="https://skillicons.dev/icons?i=html,css,js" />
-
-### Tools & Platforms
-
-<img src="https://skillicons.dev/icons?i=git,github,vscode,netlify" />
-
-</div>
-
----
 
 # 📂 PROJECT STRUCTURE
 
@@ -379,95 +351,6 @@ FOR-MY-LOVE/
 
 > The core website is intentionally lightweight and can run directly from `index.html`.
 
----
-
-# 🚀 RUN LOCALLY
-
-### 01 — Clone
-
-```bash
-git clone https://github.com/MdFahadHossain006/for-my-love.git
-```
-
-### 02 — Enter
-
-```bash
-cd for-my-love
-```
-
-### 03 — Launch
-
-Open:
-
-```text
-index.html
-```
-
-That's it.
-
-No:
-
-```text
-❌ npm install
-❌ build command
-❌ framework
-❌ backend
-❌ database
-```
-
-Just:
-
-```text
-HTML + CSS + JavaScript ❤️
-```
-
----
-
-# 🌐 LIVE DEMO
-
-<div align="center">
-
-### 🔥 EXPERIENCE THE WEBSITE
-
-<a href="https://love-animation-website-by-fahad.netlify.app/">
-
-<img src="https://img.shields.io/badge/💌_OPEN_LIVE_WEBSITE-FF4D88?style=for-the-badge&logo=netlify&logoColor=white" />
-
-</a>
-
-<br><br>
-
-**Open the envelope.  
-Read the letter.  
-Feel the story. ❤️**
-
-</div>
-
----
-
-# 📸 SCREENSHOTS
-
-<div align="center">
-
-### 💌 Envelope
-
-<img src="screenshots/envelope.png" width="80%" alt="Interactive Envelope"/>
-
-<br><br>
-
-### 📖 Letter
-
-<img src="screenshots/letter.png" width="80%" alt="Digital Letter"/>
-
-<br><br>
-
-### 👨‍💻 Developer Panel
-
-<img src="screenshots/developer-panel.png" width="80%" alt="Developer Panel"/>
-
-</div>
-
----
 
 # ♿ ACCESSIBILITY
 
@@ -550,25 +433,69 @@ Possible future additions:
 - 📱 PWA support
 - 🖨️ Printable letter mode
 
----
+# 🌍 Browser Support
 
-# ❤️ MADE WITH LOVE
+| Browser | Supported |
+|----------|-----------|
+| Chrome | ✅ |
+| Edge | ✅ |
+| Firefox | ✅ |
+| Brave | ✅ |
+| Opera | ✅ |
+
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Playfair+Display&size=22&duration=2500&pause=1000&color=FF4D88&center=true&vCenter=true&width=600&lines=Designed+with+emotion.;Built+with+code.;Created+with+love. ❤️" />
+## 👨‍💻 DEVELOPER
 
-<br><br>
+ **MD FAHAD HOSSAIN** 
+ 
+<img src="[https://i.postimg.cc/DZQ8Tmcc/Whats-App-Image-2026-09-119-at-1-26-32-AM.jpg]" style="border-radius:50%;">
 
-### 👨‍💻 MD. FAHAD HOSSAIN
+</div>
 
-**Software Developer • Web Developer • Android Developer • Cybersecurity**
 
-<br>
+<div align="center">
 
-[![GitHub](https://img.shields.io/badge/Follow_Me-181717?style=for-the-badge&logo=github)](https://github.com/MdFahadHossain006)
+## DEVELOPER CONTRACT 
 
-<br><br>
+<a href="https://www.facebook.com/share/1D7ExweqoM/">
+<img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white">
+</a>
+
+<a href="https://www.instagram.com/mdfahadhossain006?igsh=ZzhhbzljaXVxcmFw">
+<img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white">
+</a>
+
+<a href="https://youtube.com/@brightnessworld?si=0pf1lSEkvWSLXASs">
+<img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white">
+</a>
+
+<a href="https://github.com/MdFahadHossain006">
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+</a>
+
+</div> 
+
+---
+</div> 
+
+### ⚠️ Copyright & License
+
+**© 2026 MD. FAHAD HOSSAIN. All Rights Reserved.**
+
+This project is **proprietary software**. Unauthorized copying, distribution, 
+modification, or use of this code is strictly prohibited.
+
+- ❌ **No forking** without permission
+- ❌ **No copying** of source code
+- ❌ **No commercial use**
+- ✅ **Personal use only** as an end-user
+
+**Legal action will be taken against violators.**
+
+[Contact for Licensing](https://www.instagram.com/mdfahadhossain006)
+****
 
 > ### 💌 "Every line of code carries a little emotion."
 
